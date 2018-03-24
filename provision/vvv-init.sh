@@ -56,6 +56,7 @@ noroot wp theme delete twentysixteen
 noroot wp plugin delete hello
 noroot wp plugin delete akismet
 
+noroot wp option update blogdescription "Lokale Wordpressseite"
 noroot wp option update date_format 'j. F Y'
 noroot wp option update time_format 'H:i'
 noroot wp option update timezone_string "Europa/Berlin"
