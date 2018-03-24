@@ -56,13 +56,13 @@ noroot wp theme delete twentysixteen
 noroot wp plugin delete hello
 noroot wp plugin delete akismet
 
-wp option update date_format 'j. F Y'
-wp option update time_format 'H:i'
-wp option update timezone_string "Europa/Berlin"
+noroot wp option update date_format 'j. F Y'
+noroot wp option update time_format 'H:i'
+noroot wp option update timezone_string "Europa/Berlin"
 
-wp option update uploads_use_yearmonth_folders 0
-wp option update permalink_structure "/%postname%/"
-wp option update category_base "/thema"
+noroot wp option update uploads_use_yearmonth_folders 0
+noroot wp option update permalink_structure "/%postname%/"
+noroot wp option update category_base "/thema"
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 sed -i "s#{{DOMAINS_HERE}}#${DOMAINS}#" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
