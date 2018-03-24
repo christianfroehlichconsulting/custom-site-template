@@ -45,10 +45,10 @@ if ! $(noroot wp core is-installed); then
   fi
 
   noroot wp core ${INSTALL_COMMAND} --url="${DOMAIN}" --quiet --title="${SITE_TITLE}" --admin_name=admin --admin_email="admin@local.test" --admin_password="password"
-  wp theme delete twentyfifteen
-  wp theme delete twentysixteen
-  wp plugin delete hello
-  wp plugin delete akismet
+  noroot wp theme delete twentyfifteen
+  noroot wp theme delete twentysixteen
+  noroot wp plugin delete hello
+  noroot wp plugin delete akismet
 else
   echo "Updating WordPress Stable..."
   cd ${VVV_PATH_TO_SITE}/public_html
