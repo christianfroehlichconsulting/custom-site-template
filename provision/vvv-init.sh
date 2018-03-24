@@ -51,6 +51,11 @@ else
   noroot wp core update --version="${WP_VERSION}"
 fi
 
+noroot wp theme delete twentyfifteen
+noroot wp theme delete twentysixteen
+noroot wp plugin delete hello
+noroot wp plugin delete akismet
+
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 sed -i "s#{{DOMAINS_HERE}}#${DOMAINS}#" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 
