@@ -1,5 +1,5 @@
 # VVV Custom site template
-For when you just need a simple dev site - in german
+For when you just need a simple dev site - in german. Zeitzone, Uhrzeitformat angepasst und Themes auf das aktuellste beschränkt, Plugins gelöscht. Ready to work.
 
 ## Overview
 This template will allow you to create a WordPress dev environment using only `vvv-custom.yml`.
