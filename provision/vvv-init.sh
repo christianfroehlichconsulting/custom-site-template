@@ -45,25 +45,26 @@ if ! $(noroot wp core is-installed); then
   fi
 
   noroot wp core ${INSTALL_COMMAND} --url="${DOMAIN}" --quiet --title="${SITE_TITLE}" --admin_name=admin --admin_email="admin@local.test" --admin_password="password"
+  
+  noroot wp theme delete twentyfifteen
+  noroot wp theme delete twentysixteen
+  noroot wp plugin delete hello
+  noroot wp plugin delete akismet
+
+  noroot wp option update blogdescription "Lokale Wordpressseite"
+  noroot wp option update date_format 'j. F Y'
+  noroot wp option update time_format 'H:i'
+  noroot wp option update timezone_string "Europa/Berlin"
+
+  noroot wp option update uploads_use_yearmonth_folders 0
+  noroot wp option update permalink_structure "/%postname%/"
+  noroot wp option update category_base "/thema"
+
 else
   echo "Updating WordPress Stable..."
   cd ${VVV_PATH_TO_SITE}/public_html
   noroot wp core update --version="${WP_VERSION}"
 fi
-
-noroot wp theme delete twentyfifteen
-noroot wp theme delete twentysixteen
-noroot wp plugin delete hello
-noroot wp plugin delete akismet
-
-noroot wp option update blogdescription "Lokale Wordpressseite"
-noroot wp option update date_format 'j. F Y'
-noroot wp option update time_format 'H:i'
-noroot wp option update timezone_string "Europa/Berlin"
-
-noroot wp option update uploads_use_yearmonth_folders 0
-noroot wp option update permalink_structure "/%postname%/"
-noroot wp option update category_base "/thema"
 
 cp -f "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf.tmpl" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
 sed -i "s#{{DOMAINS_HERE}}#${DOMAINS}#" "${VVV_PATH_TO_SITE}/provision/vvv-nginx.conf"
